@@ -4,7 +4,7 @@ on:
     branches:
       - master
 env:
-  REGISTRY: ghcr.io/sulimanns
+  REGISTRY: ghcr.io/hsulimann
   IMAGE_BASE_NAME: ${{ github.repository }}
   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
   GITHUB_USER: ${{ secrets.DOCKERHUB_USER }}
