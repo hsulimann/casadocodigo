@@ -1,0 +1,19 @@
+name: 'Deploy'
+description: 'Deploy application'
+inputs:
+  app_version:
+    description: 'Application version'
+    required: true
+runs:
+  using: "composite"
+  steps:
+
+    - run: |
+        cd app/deployment/k8s/casadocodigo
+        helm upgrade --install casadocodigo ./ \
+        --namespace hsulimann --create-namespace \
+        --set=image.repository=ghcr.io/sulimanns/casadocodigo \
+        --set=service.port=8086 \
+        --set=image.tag=${{ inputs.app_version}}
+        
+      shell: bash
