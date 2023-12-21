@@ -12,7 +12,7 @@ runs:
         cd app/deployment/k8s/casadocodigo
         helm upgrade --install casadocodigo ./ \
         --namespace hsulimann --create-namespace \
-        --set=image.repository=ghcr.io/sulimanns/casadocodigo \
+        --set=image.repository=ghcr.io/hsulimann/casadocodigo \
         --set=service.port=8086 \
         --set=image.tag=${{ inputs.app_version}}
         
